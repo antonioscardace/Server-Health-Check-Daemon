@@ -29,7 +29,7 @@ The **Database** has the following E-R diagaram:
 <img alt="Database ER" src="/imgs/uml/db.svg" style="width: 500px;"/>
 
 The project also contains **App.config** that is an XML file for configuration. <br/>
-It contains some system variables - I read them using **/Config/ConfigManager.cs** - which you can modify: 
+It contains some system variables - I read them using **Config/ConfigManager.cs** - which you can modify: 
 
 - ``checkTime``: is the time **T** (in seconds) before checking every time all server's health.
 - ``httpTimeout``: is the HTTP timeout (in seconds) before sending the alert.
