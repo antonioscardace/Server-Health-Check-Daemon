@@ -33,10 +33,10 @@ public final class Checker {
     }
 
     private String getUtcTimestamp() { 
-		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); 
-		dateFormat.setTimeZone(TimeZone.getTimeZone("UTC")); 
-		return dateFormat.format(new Date()) + " UTC";
-	}
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"); 
+        dateFormat.setTimeZone(TimeZone.getTimeZone("UTC")); 
+        return dateFormat.format(new Date()) + " UTC";
+    }
 
     private void updateNotifics(boolean isConnected, boolean wasUnhealthy, Pair<String, String> observer) {
         if (isConnected && wasUnhealthy) this.notified.remove(observer);
