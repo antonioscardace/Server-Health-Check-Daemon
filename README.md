@@ -2,7 +2,7 @@
 
 _This Project Was Created as a Personal Project, to Practice the Following Skills:_
 
-- _Knowledge of C#_ 
+- _Knowledge of Java_ 
 - _Knowledge of Telegram APIs_
 - _Software Engineering (e.g. Design Patterns)_
 
@@ -22,14 +22,14 @@ Each server can be checked in two different ways:
 
 ## Daemon Structure
 
-![Project UML](/imgs/uml/daemon-v1.svg)
+![Project UML](/imgs/uml/app.svg)
 
 The **Database** has the following E-R diagaram:
 
 <img alt="Database ER" src="/imgs/uml/db.svg" style="width: 500px;"/>
 
-The project also contains **App.config** that is an XML file for configuration. <br/>
-It contains some system variables - I read them using **Config/ConfigManager.cs** - which you can modify: 
+The project also contains **config.properties** that is a file for configuration. <br/>
+It contains some system variables - I read them using **Config.java** - which you can modify: 
 
 - ``checkTime``: is the time **T** (in seconds) before checking every time all server's health.
 - ``httpTimeout``: is the HTTP timeout (in seconds) before sending the alert.
@@ -44,7 +44,11 @@ It contains some system variables - I read them using **Config/ConfigManager.cs*
 - ``telegramToken``: is the Telegram Bot Token, useful to send the alerts on Telegram.<br/><br/>
 - ``errorMessage``: is the text of the error message.
 - ``solveMessage``: is the text of the reconnection message.<br/><br/>
-- ``mysql_server_check``: is the MySQL connection string (server, port, user, password, db name).
+- ``server``: is the MySQL server address.
+- ``port``: is the port for connecting to the MySQL server - ``3306`` by default.
+- ``userid``: is the username for connecting to the MySQL server.
+- ``password``: is the password for connecting to the MySQL server.
+- ``dbName``: is the database name - ``server_check`` by default. 
 
 ## Telegram Bot
 
@@ -67,7 +71,8 @@ So that the repository is successfully cloned and project run smoothly, a few st
 
 ### Requisites
 
-- Need to download and install [Visual Studio](https://visualstudio.microsoft.com/downloads/).
+- The use of [Visual Studio](https://visualstudio.microsoft.com/downloads/) is recommended.
+- Need to download and install Java and Maven.
 - Need to have MySQL, if you don't have it anywhere, download and install it [from here](https://dev.mysql.com/downloads/installer/).
 - Need to have a Telegram or an Email Account wherever you want to receive alerts.
 
@@ -77,25 +82,26 @@ So that the repository is successfully cloned and project run smoothly, a few st
 ```sh
    git clone https://github.com/ElephanZ/Server-Health-Check-Daemon.git
 ```  
-2. Import database on MySQL.
+2. Import database schema on MySQL from ``app/resources/schema.sql``.
 3. Insert rows into the database. For instance:
 ```sql
    INSERT INTO `servers` VALUES ('8.8.8.8', 'ip');
    INSERT INTO `accounts` VALUES ('@MY_CHANNEL_TAG', 'telegram');
    INSERT INTO `observes` VALUES ('@MY_CHANNEL_TAG', '8.8.8.8');
 ``` 
-4. Create a _New Console Project in C#_ in Visual Studio.
-5. Copy and import through Visual Studio all the files contained in _/src/_.
-6. Install these _NuGet Packets_: <br/>
-   - ``MySql.Data``
-   - ``System.Configuration.ConfigurationManager``
-   - ``Telegram.Bot``
+4. Run the daemon
+```sh
+   cd YOUR_PROJECT_PATH/Server-Health-Check-Daemon/app/
+   mvn validate
+   mvn compile
+   mvn test
+   mvn exec:java -Dexec.mainClass=com.antonioscardace.app.App
+```
 
 ## Future Improvements
 
 - [ ] Dockerize all components.
 - [ ] Implement input of server address and channel tag by console.
-- [ ] Add a GUI using Visual C#.
 
 ## License :copyright:
 
