@@ -6,6 +6,8 @@ _This Project Was Created as a Personal Project, to Practice the Following Skill
 - _Knowledge of Telegram APIs_
 - _Software Engineering (e.g. Design Patterns)_
 
+[![CodeFactor](https://www.codefactor.io/repository/github/antonioscardace/server-health-check-daemon/badge)](https://www.codefactor.io/repository/github/antonioscardace/server-health-check-daemon)
+
 ## Introduction
 
 The project aims to check the health of a list of servers every **T** second(s).
