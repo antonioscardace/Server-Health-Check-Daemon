@@ -6,7 +6,7 @@ public class App {
     public static void main(String[] args) {
         try {
             Checker c = new Checker();
-            c.Run();
+            c.run();
         }
         catch (Exception e) {
             System.out.println("------");

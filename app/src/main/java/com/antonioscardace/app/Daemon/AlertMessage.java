@@ -34,7 +34,7 @@ public final class AlertMessage {
                 .replace("[OK]", "✅");
     }
 
-    public void Notify(String to, String contactType) throws IOException, MessagingException {
+    public void notify(String to, String contactType) throws IOException, MessagingException {
         ISender sender = SenderCreator.getSender(contactType);
         String message = this.generateText();
         sender.send(to, message);

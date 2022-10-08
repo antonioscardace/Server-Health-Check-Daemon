@@ -52,12 +52,12 @@ public final class Checker {
 
         if ((isConnected && wasUnhealthy) || (!isConnected && !wasUnhealthy)) {
             AlertMessage newAlert = new AlertMessage(isConnected, address, timestamp);
-            newAlert.Notify(contact, contactType);
+            newAlert.notify(contact, contactType);
             this.updateNotifics(isConnected, wasUnhealthy, observer);
         }
     }
 
-    public void Run() throws ClassNotFoundException, SQLException, InterruptedException, IOException, MessagingException {
+    public void run() throws ClassNotFoundException, SQLException, InterruptedException, IOException, MessagingException {
         Config config = Config.getInstance();
         MySql db = new MySql(
             config.get("server"),

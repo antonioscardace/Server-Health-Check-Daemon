@@ -19,9 +19,9 @@ public final class TelegramSender implements ISender {
     }
 
     @Override
-    public void send(String recipient, String message) throws IOException {
+    public void send(String telegramChannel, String message) throws IOException {
         String basicUrl = "https://api.telegram.org/bot{0}/sendMessage?chat_id={1}&text={2}&parse_mode=html";
-        String urlApi = MessageFormat.format(basicUrl, this.TOKEN, recipient, message);
+        String urlApi = MessageFormat.format(basicUrl, this.TOKEN, telegramChannel, message);
         HttpRequest.getInstance().request(urlApi);
     }
 }

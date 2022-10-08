@@ -36,7 +36,7 @@ public final class EmailSender implements ISender {
     }
 
     @Override
-    public void send(String recipient, String message) throws MessagingException {
+    public void send(String destEmail, String message) throws MessagingException {
         Properties props = new Properties();
         props.put("mail.smtp.user", this.SENDER_NAME);
         props.put("mail.smtp.host", this.SMTP_HOST);
@@ -55,7 +55,7 @@ public final class EmailSender implements ISender {
 
         MimeMessage msg = new MimeMessage(session);
         msg.setFrom(new InternetAddress(this.SENDER_EMAIL));
-        msg.addRecipient(Message.RecipientType.TO, new InternetAddress(recipient));
+        msg.addRecipient(Message.RecipientType.TO, new InternetAddress(destEmail));
         msg.setSubject(this.EMAIL_SUBJECT);
         msg.setText(message);
 
