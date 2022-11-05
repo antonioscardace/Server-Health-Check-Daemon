@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS `servers` (
 
 CREATE TABLE IF NOT EXISTS `accounts` (
     `contact` VARCHAR(64) NOT NULL,
-    `contact_type` ENUM('email', 'telegram') NOT NULL,
+    `contact_type` ENUM('email', 'telegram', 'slack') NOT NULL,
     PRIMARY KEY(`contact`)
 );
 
