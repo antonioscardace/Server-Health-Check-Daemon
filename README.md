@@ -72,9 +72,9 @@ Here is the result on both a Public Telegram Channel (which I made just to test)
 
 <img alt="Email Screen" src="/imgs/snaps/email.png" style="width: 600px;"/>
 
-![Slack Screen](/imgs/snaps/slack.png) <br/>
+![Telegram Channel Screen](/imgs/snaps/telegram-channel.png)
 
-![Telegram Channel Screen](/imgs/snaps/telegram-channel.png) <br/>
+![Slack Screen](/imgs/snaps/slack.png)
 
 ## Getting Started
 
