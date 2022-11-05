@@ -68,7 +68,7 @@ To post messages into Slack you can follow [this](https://medium.com/@sharan.aad
 ## Demo
 
 I have simulated a disconnection and a reconnection of my local server. <br/>
-Here is the result on both a Public Telegram Channel (which I made just to test) and on an Email.
+Here is the result on an Email, on a Public Telegram Channel (which I made just to test), and on Slack.
 
 <img alt="Email Screen" src="/imgs/snaps/email.png" style="width: 600px;"/>
 
