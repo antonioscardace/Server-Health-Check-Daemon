@@ -9,6 +9,8 @@ public final class SenderCreator {
         switch (contactType) {
             case "email":
                 return EmailSender.getInstance();
+            case "slack":
+                return SlackSender.getInstance();
             case "telegram":
                 return TelegramSender.getInstance();
             default:
