@@ -3,7 +3,7 @@
 _This Project Was Created as a Personal Project, to Practice the Following Skills:_
 
 - _Knowledge of Java_ 
-- _Knowledge of Telegram APIs_
+- _Knowledge of Telegram and Slack APIs_
 - _Software Engineering (e.g. Design Patterns)_
 
 [![CodeFactor](https://www.codefactor.io/repository/github/antonioscardace/server-health-check-daemon/badge)](https://www.codefactor.io/repository/github/antonioscardace/server-health-check-daemon)
@@ -12,7 +12,7 @@ _This Project Was Created as a Personal Project, to Practice the Following Skill
 
 The project aims to check the health of a list of servers every **T** second(s).
 
-An alert message will be sent on a **Telegram Channel** or to an **Email**, in two cases:
+An alert message will be sent on a **Telegram Channel** or to a **Slack Channel** or to an **Email**, in two cases:
 
 - If a server is unhealthy and **goes offline**.
 - If a server that has been reported as unhealthy **comes back online**.
@@ -59,13 +59,22 @@ If you wanna use it you just have to add it as an administrator in your channel.
 
 ![Bot Logo](/imgs/telegram-bot-logo.png)
 
+## Slack
+
+To post messages into Slack you can follow [this](https://medium.com/@sharan.aadarsh/sending-notification-to-slack-using-python-8b71d4f622f3) guide.
+
+**Incoming WebHooks** will also return a **Webhook URL** parsed as ``https://hooks.slack.com/services/TOKEN``. You will have to insert just the ``TOKEN`` into the database. I also suggest you set the username and the icon that the integration will post.
+
 ## Demo
 
 I have simulated a disconnection and a reconnection of my local server. <br/>
 Here is the result on both a Public Telegram Channel (which I made just to test) and on an Email.
 
-![Telegram Channel Screen](/imgs/snaps/telegram-channel.png) <br/>
 <img alt="Email Screen" src="/imgs/snaps/email.png" style="width: 600px;"/>
+
+![Slack Screen](/imgs/snaps/slack.png) <br/>
+
+![Telegram Channel Screen](/imgs/snaps/telegram-channel.png) <br/>
 
 ## Getting Started
 
@@ -76,7 +85,7 @@ So that the repository is successfully cloned and project run smoothly, a few st
 - The use of [Visual Studio](https://visualstudio.microsoft.com/downloads/) is recommended.
 - Need to download and install Java and Maven.
 - Need to have MySQL, if you don't have it anywhere, download and install it [from here](https://dev.mysql.com/downloads/installer/).
-- Need to have a Telegram or an Email Account wherever you want to receive alerts.
+- Need to have a Telegram or a Slack or an Email account to receive alerts.
 
 ### Installation for Developers
 
@@ -89,7 +98,9 @@ So that the repository is successfully cloned and project run smoothly, a few st
 ```sql
    INSERT INTO `servers` VALUES ('8.8.8.8', 'ip');
    INSERT INTO `accounts` VALUES ('@MY_CHANNEL_TAG', 'telegram');
+   INSERT INTO `accounts` VALUES ('T123456/ABCDEF/justF0rT3st1ng', 'slack');
    INSERT INTO `observes` VALUES ('@MY_CHANNEL_TAG', '8.8.8.8');
+   INSERT INTO `observes` VALUES ('T123456/ABCDEF/justF0rT3st1ng', '8.8.8.8');
 ``` 
 4. Run the daemon
 ```sh
