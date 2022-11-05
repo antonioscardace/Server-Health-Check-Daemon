@@ -24,7 +24,7 @@ Each server can be checked in two different ways:
 
 ## Daemon Structure
 
-![Project UML](/imgs/uml/app.svg)
+![Project UML](/imgs/uml/app-v2.svg)
 
 The **Database** has the following E-R diagaram:
 
