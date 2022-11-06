@@ -24,7 +24,7 @@ Each server can be checked in two different ways:
 
 ## Daemon Structure
 
-![Project UML](/imgs/uml/app-v2.svg)
+![Project UML](/imgs/uml/app-v3.svg)
 
 The **Database** has the following E-R diagaram:
 
@@ -113,6 +113,7 @@ So that the repository is successfully cloned and project run smoothly, a few st
 
 ## Future Improvements
 
+- [x] Add Slack as Sender component.
 - [ ] Dockerize all components.
 - [ ] Implement input of server address and channel tag by console.
 
