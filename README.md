@@ -91,7 +91,7 @@ So that the repository is successfully cloned and project run smoothly, a few st
 
 1. Clone the repository
 ```sh
-   git clone https://github.com/ElephanZ/Server-Health-Check-Daemon.git
+   git clone https://github.com/antonioscardace/Server-Health-Check-Daemon.git
 ```  
 2. Import database schema on MySQL from ``app/resources/schema.sql``.
 3. Insert rows into the database. For instance:
